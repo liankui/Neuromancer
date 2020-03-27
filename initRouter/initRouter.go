@@ -3,13 +3,19 @@ package initRouter
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/yueekee/Neuromancer/handler"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 func SetupRouter() *gin.Engine {
 	router := gin.Default()
+
+	url := ginSwagger.URL("http://localhost:8080/swagger/doc.json")
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
+
 	if mode := gin.Mode(); mode == gin.TestMode {
 		router.LoadHTMLGlob("./../templates/*")
-	}else {
+	} else {
 		router.LoadHTMLGlob("templates/*")
 	}
 	router.Static("/statics", "./statics")
@@ -25,6 +31,11 @@ func SetupRouter() *gin.Engine {
 		userRouter.GET("/:name", handler.UserSave)
 		userRouter.GET("", handler.UserSaveByQuery)
 		userRouter.POST("/register", handler.UserRegister)
+	}
+
+	articleRouter := router.Group("")
+	{
+		articleRouter.POST("/article", handler.Insert)
 	}
 
 	return router

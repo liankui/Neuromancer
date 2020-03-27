@@ -10,6 +10,7 @@ import (
 )
 
 var router *gin.Engine
+
 func init() {
 	gin.SetMode(gin.TestMode)
 	router = initRouter.SetupRouter()
@@ -20,5 +21,5 @@ func TestIndexGetRouter(t *testing.T) {
 	req, _ := http.NewRequest(http.MethodGet, "/", nil)
 	router.ServeHTTP(w, req)
 	assert.Equal(t, http.StatusOK, w.Code)
-	assert.Contains(t,"hello gin get method", w.Body.String())
+	assert.Contains(t, "hello gin get method", w.Body.String())
 }
