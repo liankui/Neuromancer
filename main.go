@@ -1,8 +1,8 @@
 package main
 
 import (
-	_ "github.com/yueekee/Neuromancer/docs"
-	"github.com/yueekee/Neuromancer/initRouter"
+	_ "github.com/liankui/Neuromancer/docs"
+	"github.com/liankui/Neuromancer/initRouter"
 )
 
 

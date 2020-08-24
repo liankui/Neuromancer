@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
-	"github.com/yueekee/Neuromancer/initRouter"
+	"github.com/liankui/Neuromancer/initRouter"
 	"net/http"
 	"net/http/httptest"
 	"net/url"

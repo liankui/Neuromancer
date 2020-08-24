@@ -1,11 +1,5 @@
 package handler
 
-import (
-	"github.com/gin-gonic/gin"
-	"github.com/yueekee/Neuromancer/model"
-	"net/http"
-)
-
 
 // @Summary 提交新的文章内容
 // @Id 1
@@ -17,13 +11,13 @@ import (
 // @Failure 409 object model.Result 添加失败
 // @Router /article [post]
 
-func Insert(context *gin.Context) {
-	article := model.Article{}
-	var id = -1
-	if e := context.ShouldBindJSON(&article); e == nil {
-		id = article.Insert()
-	}
-	context.JSON(http.StatusOK, gin.H{
-		"id": id,
-	})
-}
+//func Insert(context *gin.Context) {
+//	article := model.Article{}
+//	var id = -1
+//	if e := context.ShouldBindJSON(&article); e == nil {
+//		id = article.Insert()
+//	}
+//	context.JSON(http.StatusOK, gin.H{
+//		"id": id,
+//	})
+//}

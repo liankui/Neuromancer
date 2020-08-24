@@ -2,7 +2,7 @@ package initRouter
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/yueekee/Neuromancer/handler"
+	"github.com/liankui/Neuromancer/handler"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
@@ -30,13 +30,13 @@ func SetupRouter() *gin.Engine {
 	{
 		userRouter.GET("/:name", handler.UserSave)
 		userRouter.GET("", handler.UserSaveByQuery)
-		userRouter.POST("/register", handler.UserRegister)
+		//userRouter.POST("/register", handler.UserRegister)
 	}
 
-	articleRouter := router.Group("")
-	{
-		articleRouter.POST("/article", handler.Insert)
-	}
+	//articleRouter := router.Group("")
+	//{
+	//	articleRouter.POST("/article", handler.Insert)
+	//}
 
 	return router
 }
